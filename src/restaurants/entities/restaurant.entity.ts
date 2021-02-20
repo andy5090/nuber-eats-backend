@@ -9,30 +9,30 @@ import { Column, Entity, ManyToOne, RelationId } from 'typeorm';
 @ObjectType()
 @Entity()
 export class Restaurant extends CoreEntity {
-  @Field((type) => String)
+  @Field(type => String)
   @Column()
   @IsString()
   name: string;
 
-  @Field((type) => String)
+  @Field(type => String)
   @Column()
   @IsString()
   coverImg: string;
 
-  @Field((type) => String)
+  @Field(type => String)
   @Column()
   @IsString()
   address: string;
 
-  @Field((type) => Category, { nullable: true })
-  @ManyToOne((type) => Category, (category) => category.restaurants, {
+  @Field(type => Category, { nullable: true })
+  @ManyToOne(type => Category, category => category.restaurants, {
     nullable: true,
     onDelete: 'SET NULL',
   })
   category: Category;
 
-  @Field((type) => User)
-  @ManyToOne((type) => User, (user) => user.restaurants, {
+  @Field(type => User)
+  @ManyToOne(type => User, user => user.restaurants, {
     onDelete: 'CASCADE',
   })
   owner: User;
