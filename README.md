@@ -37,6 +37,12 @@ The Backend of Nuber Eats Clone
 ## Order CRUD:
 
 - Orders CRUD
-- Orders Subscription (Owner, Customer, Delivery)
+- Orders Subscription:
+
+  - Pending Orders (Owner) (s: newOrder) (t: createOrder)
+  - Pending Pickup Order (Delivery) (s: orderUpdate) (t: editOrder(orderUpdate))
+  - Order Status (Customer, Delivery, Owner) (s: orderUpdate) (t: editOrder(orderUpdate))
+
+- Add Driver to Order
 
 - Payments (CRON)

@@ -11,6 +11,7 @@ import { InternalServerErrorException } from '@nestjs/common';
 import { IsBoolean, IsEnum, IsString } from 'class-validator';
 import { Restaurant } from 'src/restaurants/entities/restaurant.entity';
 import { Order } from 'src/orders/entities/order.entity';
+import { Payment } from 'src/payments/entities/payments.entity';
 
 export enum UserRole {
   Client = 'Client',
@@ -51,6 +52,10 @@ export class User extends CoreEntity {
   @Field(type => [Order])
   @OneToMany(type => Order, order => order.customer)
   orders: Order[];
+
+  @Field(type => [Payment])
+  @OneToMany(type => Payment, payment => payment.user)
+  payments: Payment[];
 
   @Field(type => [Order])
   @OneToMany(type => Order, order => order.driver)
